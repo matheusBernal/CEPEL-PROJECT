@@ -14,7 +14,7 @@ export default function Header() {
         minHeight: '80px'
       }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Box 
+          <Box
             component="img"
             src="EletrobrasLogo.png"
             alt="Logo"
@@ -29,19 +29,7 @@ export default function Header() {
               variant="outlined"
               style={{ color: 'linear-gradient(to right,#0072C6 0%, #009E49 50%, #C9DA2A 100%) 1' }}
               sx={{
-                fontWeight: 600,
-                textTransform: 'none',
-                borderRadius: 2,
-                px: 3,
-                py: 1
-              }}
-            >
-              Importar
-            </Button>
-            <Button
-              variant="outlined"
-              style={{ color: 'linear-gradient(to right,#0072C6 0%, #009E49 50%, #C9DA2A 100%) 1' }}
-              sx={{
+                margin: '3px',
                 fontWeight: 600,
                 textTransform: 'none',
                 borderRadius: 2,
@@ -51,7 +39,21 @@ export default function Header() {
               disabled
               hidden
             >
-              Download JSON
+              Download
+            </Button>
+            <Button
+              variant="outlined"
+              style={{ color: 'linear-gradient(to right,#0072C6 0%, #009E49 50%, #C9DA2A 100%) 1' }}
+              sx={{
+                margin: '3px',
+                fontWeight: 600,
+                textTransform: 'none',
+                borderRadius: 2,
+                px: 3,
+                py: 1
+              }}
+            >
+              Importar
             </Button>
           </Box>
         </Toolbar>
