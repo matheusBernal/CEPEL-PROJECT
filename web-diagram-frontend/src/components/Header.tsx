@@ -1,7 +1,21 @@
-import { AppBar, Box, Button, Container, Toolbar, Typography } from '@mui/material'
-import React from 'react'
+import { AppBar, Box, Button, Container, Toolbar, Input } from '@mui/material'
+import React,{ useRef } from 'react'
+
 
 export default function Header() {
+
+  const fileUploadRef = useRef<HTMLInputElement>(null);
+
+  const handleButtonClick = () => {
+    fileUploadRef.current?.click()
+  }
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      console.log('Arquivo selecionado:', file.name);
+    }
+  }
 
   //const [importXLM,]
   return (
@@ -52,7 +66,9 @@ export default function Header() {
                 px: 3,
                 py: 1
               }}
+              onClick={handleButtonClick}
             >
+              <input type='file' ref={fileUploadRef} onChange={handleFileChange} hidden/>
               Importar
             </Button>
           </Box>
