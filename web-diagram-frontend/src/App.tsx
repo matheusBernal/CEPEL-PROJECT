@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import Header from './components/Header';
+import Webdiagram from './components/Webdiagram';
 
 function App() {
   return (
     <div className="App">
       <Header/>
+      <Webdiagram/>
     </div>
   );
 }

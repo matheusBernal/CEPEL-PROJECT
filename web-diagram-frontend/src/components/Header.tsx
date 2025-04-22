@@ -1,8 +1,12 @@
-import { AppBar, Box, Button, Container, Toolbar, Input } from '@mui/material'
+import { AppBar, Box, Button, Container, Toolbar } from '@mui/material'
 import React,{ useRef } from 'react'
+import axios from 'axios';
+import { useDiagram } from '../context/DiagramContext';
 
 
 export default function Header() {
+
+  const { setDiagram } = useDiagram();
 
   const fileUploadRef = useRef<HTMLInputElement>(null);
 
@@ -10,10 +14,14 @@ export default function Header() {
     fileUploadRef.current?.click()
   }
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async  (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      console.log('Arquivo selecionado:', file.name);
+      const formData = new FormData();
+      formData.append("file",file);
+      const res = await axios.post("http://localhost:8080/diagram/upload", formData);
+      setDiagram(res.data)
+      console.log(res.data)
     }
   }
 

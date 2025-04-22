@@ -18,12 +18,12 @@ public class DiagramService {
         List<ComponentDTO> components = new ArrayList<>();
         List<ConnectionDTO> connections = new ArrayList<>();
     
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(file.getInputStream());
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); // Cria o parser XML
+        DocumentBuilder builder = factory.newDocumentBuilder(); 
+        Document doc = builder.parse(file.getInputStream()); // Lê o conteúdo do arquivo e transforma em documento XML
     
 
-        NodeList componentItems = doc.getElementsByTagName("components").item(0).getChildNodes();
+        NodeList componentItems = doc.getElementsByTagName("components").item(0).getChildNodes();  // Pega todos os <component> do XML
         for (int i = 0; i < componentItems.getLength(); i++) {
             if (!(componentItems.item(i) instanceof Element)) continue;
             Element item = (Element) componentItems.item(i);
