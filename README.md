@@ -1,2 +1,2 @@
 # CEPEL-PROJECT
-This is my code test to CEPEL
+This is a simple projetec in react-flux, react,typescripty and java
